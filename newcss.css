@@ -1,0 +1,77 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14-Jul-2020, 2:00:48 AM
+    Author     : ANSHUMAN
+*/
+.banner-image{
+    padding: 15.35%;
+    text-align: center;
+    color: #f8f8f8;
+    background:url("intro-bg_1.jpg")no-repeat center;
+    background-size:cover;
+    background-position: center;
+}
+.banner-content{
+    position: relative;
+    margin: auto;
+    background-color: rgba(0,0,0,0.7);
+    width:50%;
+    padding: 80px;
+    border-radius: 5px;
+}
+.footer1{
+    position: fixed;
+    padding: 10px 0px 0px 0px;
+    bottom: 0;
+    left: 0;
+    background-color: #101010;
+    color: #9d9d9d;
+    width: 100%;
+}
+.banner-image1{
+    padding: 9%;
+    text-align: center;
+    background-color: rgba(0,0,0,.1)
+}
+.banner-image2{
+    padding: 5%;
+    text-align: center;
+    background-color: rgba(0,0,0,.1);
+}
+.fixed-navbar{
+    top:0;
+    width: 100%;
+}
+
+.banner-image2{
+    width: 80%;
+    padding: 120px;
+    background-color: grey;
+    align-content: center;
+}
+.jumbotron{
+    margin-top: 20px;
+}
+table{
+    border: 1px solid;
+    text-align: center;
+    width: 30%;
+}
+td{
+    padding: 15px;
+    border: 1px solid #a4a4a4;
+    height: 30px;
+    background-color: rgba(0,0,0,.2);
+}
+th{
+    text-align: center;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
