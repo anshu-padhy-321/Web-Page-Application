@@ -1,3 +1,9 @@
+<?php
+    include 'common.php';
+    if (!isset($_SESSION['email'])) {
+    header('location: index.php');
+}
+    ?>
 <html>
     <head>
         <title>Sign Up</title>
@@ -9,47 +15,44 @@
         
     </head>
     <body>
-        <nav class="fixed-navbar">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand"><h2>Lifestyle Store</h2></a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav ml-auto navbar-dark">
-                        <li class="navbar-brand"><a href="cart.php"><h4 style="color:grey"> Cart </h4></a></li>
-                        <li class="navbar-brand"><a href="settings.php"><h4 style="color:grey"> Settings </h4></a></li>
-                        <li class="navbar-brand"><a href="Login.php"><h4 style="color:grey"> Logout </h4></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-            <table class="center">
-                <tbody>
+        <?php
+            require 'header.php';
+            ?>
+        <table class="center table table-striped">
+        <?php
+            $user_id=$_SESSION['user_id'];
+            $select_query="SELECT items.price AS Price, items.id, items.name AS Name from user_items inner join items on user_items.item_id=items.id where user_items.user_id='$user_id' and status='Added to cart'";
+            $select_query_result= mysqli_query($con, $select_query);
+            $total_rows_fetched= mysqli_num_rows($select_query_result);
+            if($total_rows_fetched==0)
+                echo 'Add items to cart first!';
+            else{
+                $sum=0;
+                ?>
+            
+            <thead>
                     <tr>    
                     <th>Item Number</th>
                     <th>Item Name</th>
                     <th>Price</th>
                     <th></th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Total</td>
-                        <td>Rs 0/-</td>
-                        <td><a href="success.php"class="btn btn-primary">Confirm Order</a></td>
-                    </tr>
+            </thead>
+            <tbody>
+            <?php
+                while ($row = mysqli_fetch_array($select_query_result)) {
+                    $sum+= $row["Price"];
+                    $id .= $row["id"] . ", ";
+                    echo "<tr><td>" . "#" . $row["id"] . "</td><td>" . $row["Name"] . "</td><td>Rs " . $row["Price"] . "</td><td><a href='cart-remove.php?id={$row['id']}' class='remove_item_link'> Remove</a></td></tr>";
+                }
+                $id = rtrim($id, ", ");
+                echo "<tr><td></td><td>Total</td><td>Rs " . $sum . "</td><td><a href='success.php?itemsid=" . $id . "' class='btn btn-primary'>Confirm Order</a></td></tr>";
+                ?>
                 </tbody>
-            </table>            
-        <footer align="center">
-                <div class="footer1">
-                    <p>Copyright © Lifestyle Store. All Rights Reserved | Contact Us: +91 90000 00000</p>
-                </div>
-        </footer>
+            </table>  
+            <?php } ?>           
+        <?php 
+            include 'footer.php';
+            ?>
     </body>
 </html>

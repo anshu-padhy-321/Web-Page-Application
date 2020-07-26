@@ -33,12 +33,12 @@
                             <h1>SIGN UP</h1>
                         </div><br>
                         <div class="card-body">
-                            <form>
+                            <form method="post" action="signup_script.php">
                                 <input type="text" class="form-control form-control-lg" name="name" placeholder="Name">
                                 <br>
                                 <input type="text" class="form-control form-control-lg" name="email" placeholder="Email">
                                 <br>
-                                <input type="text" class="form-control form-control-lg" name="password" placeholder="Password">
+                                <input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
                                 <br>
                                 <input type="text" class="form-control form-control-lg" name="contact" placeholder="Contact">
                                 <br>
@@ -46,8 +46,8 @@
                                 <br>
                                 <input type="text" class="form-control form-control-lg" name="address" placeholder="Address">
                                 <br>
+                                <button type="submit" name="submit" class="btn btn-primary">Submit</button><br>
                             </form>
-                            <a href="#" class="btn btn-primary">Submit</a><br>
                         </div>
                     </div>
                 </div>

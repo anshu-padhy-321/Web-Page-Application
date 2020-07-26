@@ -1,6 +1,9 @@
+<?php
+    include'common.php'
+    ?>
 <html>
     <head>
-        <title>Sign Up</title>
+        <title>Products</title>
         <link rel="stylesheet" type="text/css" href="newcss.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -9,22 +12,10 @@
         
     </head>
     <body>
-        <nav class="fixed-navbar">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand"><h2>Lifestyle Store</h2></a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav ml-auto navbar-dark">
-                        <li class="navbar-brand"><a href="cart.php"><h4 style="color:grey"> Cart </h4></a></li>
-                        <li class="navbar-brand"><a href="settings.php"><h4 style="color:grey"> Settings </h4></a></li>
-                        <li class="navbar-brand"><a href="Login.php"><h4 style="color:grey"> Logout </h4></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        </nav>
+        <?php 
+            include 'header.php';
+            include 'check_if_added.php';
+            ?>
         <div class="container">
             <div class="jumbotron">
             <h1 align="center">Welcome To Our Lifestyle Store!</h1>
@@ -39,7 +30,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Cannon EOS</h4>
                             <h6 class="card-text" align="center">Price:Rs.36000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=1" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -47,7 +49,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Sony DSLR</h4>
                             <h6 class="card-text" align="center">Price:Rs.40000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=2" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -55,7 +68,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Sony DSLR</h4>
                             <h6 class="card-text" align="center">Price:Rs.50000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=3" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -63,7 +87,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Olympus DSLR</h4>
                             <h6 class="card-text" align="center">Price:Rs.80000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=4" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     </div>
@@ -76,7 +111,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Titan Model #301</h4>
                             <h6 class="card-text" align="center">Price:Rs.13000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+            <a href="cart_add.php?id=5" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -84,23 +130,56 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Titan Model #201</h4>
                             <h6 class="card-text" align="center">Price:Rs.3000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=6" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
                         <img class="card-img-top" src="11.jpg" alt="Image">
                         <div class="card-body">
-                            <h4 class="card-title" align="center">Sony DSLR</h4>
+                            <h4 class="card-title" align="center">HMT Milan</h4>
                             <h6 class="card-text" align="center">Price:Rs.8000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=7" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
                         <img class="card-img-top" src="12.jpg" alt="Image">
                         <div class="card-body">
-                            <h4 class="card-title" align="center">Olympus DSLR</h4>
+                            <h4 class="card-title" align="center">Faber Luba #111</h4>
                             <h6 class="card-text" align="center">Price:Rs.18000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=8" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     </div>
@@ -113,7 +192,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">H&W</h4>
                             <h6 class="card-text" align="center">Price:Rs.800.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=9" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -121,7 +211,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Luis Phil</h4>
                             <h6 class="card-text" align="center">Price:Rs.1000.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=10" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -129,7 +230,18 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">John Zok</h4>
                             <h6 class="card-text" align="center">Price:Rs.1500.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=11" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
                     <div class="card">
@@ -137,19 +249,25 @@
                         <div class="card-body">
                             <h4 class="card-title" align="center">Jhalsani</h4>
                             <h6 class="card-text" align="center">Price:Rs.1300.00</h6>
-                            <a href="#" class="btn btn-primary btn-block">Add to cart</a>
+                            <?php 
+            if (!isset($_SESSION['email'])){
+            ?> 
+            <p><a href="login.php" role="button" class="btn btn-primary btn-block">Buy Now</a></p> 
+        <?php } else {
+            if (check_if_added_to_cart(1)) {?>
+                <a href="#" class="btn btn-block btn-success" disabled>Added to cart</a>;
+            <?php
+            }else{
+            ?> 
+                <a href="cart_add.php?id=12" name="add" value="add" class="btn btn-block btn-primary">Add to cart</a> 
+        <?php }} ?>
                         </div>
                     </div>
-                    </div>
-                  
-            </div>
-            
-        </div>
-        <footer align="center">
-                <div class="footer1">
-                    <p> Copyright © Lifestyle Store. All Rights Reserved | Contact Us: +91 90000 00000</p>
                 </div>
-        </footer>
+            </div>
+        </div>
+        <?php
+        include 'footer.php';
+        ?>
     </body>
 </html>
-

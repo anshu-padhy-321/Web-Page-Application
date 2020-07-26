@@ -1,4 +1,6 @@
-
+<?php
+    include 'common.php';
+    ?>
 <html>
     <head>
         <title>Login</title>
@@ -10,21 +12,9 @@
         
     </head>
     <body>
-        <nav class="fixed-navbar">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand"><h2>Lifestyle Store</h2></a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav ml-auto navbar-dark">
-                        <li class="navbar-brand"><a href="signup.php"><h4 style="color:grey"> Sign Up </h4></a></li>
-                        <li class="navbar-brand"><a href="Login.php"><h4 style="color:grey"> Log In </h4></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        </nav>
+<?php
+    include 'header.php';
+    ?>
         <div class="banner-image1">
         <div class="container">
             <div class="row row-style">
@@ -36,14 +26,15 @@
                         <div class="card-body">
                             <div class="card-text text-muted"><i>Login to make a purchase</i></div>
                             <br>
-                            <form>
+                            <form method="post" action="login_submit.php">
                                 <input type="text" class="form-control form-control-lg" name="email" placeholder="Email">
                                 <br>
-                                <input type="text" class="form-control form-control-lg" name="password" placeholder="Password">
+                                <input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
+                                <br>
+                                <button type="submit" name="login" class="btn btn-primary">Login</button><br>
                             </form>
-                            <a href="products.php" class="btn btn-primary">Login</a><br>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer">,
                             Don't have an account? <a href="signup.php">Register</a>
                         </div>
                     </div>
@@ -51,10 +42,8 @@
             </div>
         </div>
         </div>
-        <footer align="center">
-                <div class="footer1">
-                    <p>Copyright © Lifestyle Store. All Rights Reserved | Contact Us: +91 90000 00000</p>
-                </div>
-        </footer>
+<?php
+    include 'footer.php';
+    ?>
     </body>
 </html>

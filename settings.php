@@ -1,3 +1,8 @@
+<?php
+    include 'common.php';
+    if (!isset($_SESSION['email']))
+        header('location:index.php');
+    ?>
 <html>
     <head>
         <title>Sign Up</title>
@@ -9,21 +14,9 @@
         
     </head>
     <body>
-        <nav class="fixed-navbar">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand"><h2>Lifestyle Store</h2></a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav ml-auto navbar-dark">
-                        <li class="navbar-brand"><a href="#"><h4 style="color:grey"> Cart </h4></a></li>
-                        <li class="navbar-brand"><a href="#"><h4 style="color:grey"> Settings </h4></a></li>
-                        <li class="navbar-brand"><a href="Login.php"><h4 style="color:grey"> Logout </h4></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+            include 'header.php';
+            ?>
         <div class="banner-image2">
         <div class="container">
             <div class="row">
@@ -33,25 +26,23 @@
                             <h1>Change Password</h1>
                         </div><br>
                         <div class="card-body">
-                            <form>
-                                <input type="text" class="form-control form-control-lg" name="oldpassword" placeholder="Old Password">
+                            <form method="post" action="settings_script.php">
+                                <input type="password" class="form-control form-control-lg" name="oldpassword" placeholder="Old Password">
                                 <br>
-                                <input type="text" class="form-control form-control-lg" name="newpassword" placeholder="New Password">
+                                <input type="password" class="form-control form-control-lg" name="newpassword" placeholder="New Password">
                                 <br>
-                                <input type="text" class="form-control form-control-lg" name="retypenewpassword" placeholder="Re-type New Password">
+                                <input type="password" class="form-control form-control-lg" name="retypenewpassword" placeholder="Re-type New Password">
                                 <br>
+                                <button type="submit" name="change" class="btn btn-primary">Change</button><br>
                             </form>
-                            <a href="#" class="btn btn-primary">Change</a><br>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         </div>
-        <footer align="center">
-                <div class="footer1">
-                    <p>Copyright © Lifestyle Store. All Rights Reserved | Contact Us: +91 90000 00000</p>
-                </div>
-        </footer>
+        <?php
+            include 'footer.php';
+            ?>
     </body>
 </html>

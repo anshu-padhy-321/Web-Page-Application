@@ -1,11 +1,6 @@
-<?php
-    include 'common.php';
-    if (!isset($_SESSION['email']))
-        header('location:index.php');
-    ?>
 <html>
     <head>
-        <title>Sign Up</title>
+        <title>Hello</title>
         <link rel="stylesheet" type="text/css" href="newcss.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -14,17 +9,11 @@
         
     </head>
     <body>
-        <?php 
-            include 'header.php';
-            ?>
-        <div class="container">
-            <div class="jumbotron">
-                <h2 align="center">Your Order has been confirmed.Thank you for shopping with us.<a href="products.php">Click here</a> to purchase any other item.</h2>
-            </div>
-        </div>
-        <?php
-            include 'footer.php';
-            ?>
+        <footer align="center">
+                <div class="footer1">
+                    <p> Copyright © Lifestyle Store. All Rights Reserved | Contact Us: +91 90000 00000</p>
+                </div>
+        </footer>
     </body>
 </html>
 

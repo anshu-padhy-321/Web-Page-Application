@@ -4,6 +4,11 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+    include 'common.php';
+    if(isset($_SESSION['email']))
+        header('location:products.php');
+    ?>
 <html>
     <head>
         <title>Hello</title>
@@ -15,21 +20,9 @@ and open the template in the editor.
         
     </head>
     <body>
-        <nav class="fixed-navbar">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top" position="fixed">
-            <div class="container">
-                <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand"><h2>Lifestyle Store</h2></a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav ml-auto navbar-dark">
-                        <li class="navbar-brand"><a href="signup.php"><h4 style="color:grey"> Sign Up </h4></a></li>
-                        <li class="navbar-brand"><a href="Login.php"><h4 style="color:grey"> Log In </h4></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        </nav>
+        <?php
+            include 'header.php';
+            ?>
         <div class="banner-image">
             <div class="container">
                 <div class="banner-content">
@@ -37,11 +30,9 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <footer align="center">
-                <div class="footer1">
-                    <p> Copyright © Lifestyle Store. All Rights Reserved | Contact Us: +91 90000 00000</p>
-                </div>
-        </footer>
+        <?php
+            include 'footer.php';
+            ?>
     </body>
-</html>    
+</html>
 
